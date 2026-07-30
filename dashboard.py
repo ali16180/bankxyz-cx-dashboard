@@ -44,28 +44,28 @@ META_CSV = BASE_DIR / "metadata" / "metadata_dashboard.csv"
 # ---- Palet -------------------------------------------------------
 # Pasangan kategorikal XYZ/Kompetitor lulus seluruh gate CVD & kontras
 # (validate_palette.js, mode light, surface #FFFFFF).
-C_BRAND = "#0F4C81"          # judul & aksen brand
-SERIES_XYZ = "#2E77AE"       # slot kategorikal 1
+C_BRAND = "#4CA0E0"          # judul & aksen brand (dicerahkan utk latar gelap)
+SERIES_XYZ = "#4A93D1"       # slot kategorikal 1
 SERIES_COMP = "#EB6834"      # slot kategorikal 2
 # Sekuensial satu hue (heatmap): terang -> gelap
 BLUE_SEQ = ["#CDE2FB", "#9EC5F4", "#6DA7EC", "#3987E5", "#256ABF", "#104281"]
 # Diverging biru <-> merah dengan titik netral abu (untuk gap)
-GAP_UNDER = "#D03B3B"        # kepentingan > kepuasan  -> perlu diperbaiki
-GAP_OVER = "#2E77AE"         # kepuasan > kepentingan  -> sudah melampaui
+GAP_UNDER = "#E2544C"        # kepentingan > kepuasan  -> perlu diperbaiki
+GAP_OVER = "#4A93D1"         # kepuasan > kepentingan  -> sudah melampaui
 # Status (tetap, tidak pernah dipakai sebagai warna seri biasa)
-ST_GOOD = "#0CA30C"
-ST_WARN = "#FAB219"
-ST_SERIOUS = "#EC835A"
-ST_CRIT = "#D03B3B"
-# Ink
-INK = "#0B1F33"
-INK_2 = "#52514E"
-MUTED = "#898781"
-GRID = "#E1E0D9"
-AXIS = "#C3C2B7"
-SURFACE = "#FFFFFF"
-C_PALE = "#D6E9F8"
-C_BG = "#F4F9FF"
+ST_GOOD = "#22C55E"
+ST_WARN = "#FBBF24"
+ST_SERIOUS = "#F0855A"
+ST_CRIT = "#E2544C"
+# Ink — mode gelap: teks terang di atas permukaan gelap
+INK = "#EAF1FB"
+INK_2 = "#AAB8CC"
+MUTED = "#7C8AA0"
+GRID = "#25344A"
+AXIS = "#3A4E6B"
+SURFACE = "#141F30"
+C_PALE = "#1E2E44"
+C_BG = "#0B1420"
 
 MIN_BASE = 100               # di bawah ini basis responden dianggap tipis
 
@@ -118,8 +118,8 @@ h1, h2, h3 { color: __DARK__ !important; font-weight: 800; }
 
 /* ---------- SIDEBAR ---------- */
 section[data-testid="stSidebar"] {
-    background-color: #E7F0FA;
-    border-right: 1px solid #C7DAEE;
+    background-color: __SURF__;
+    border-right: 1px solid __BORDER__;
 }
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
@@ -134,8 +134,8 @@ section[data-testid="stSidebar"] label { font-weight: 700 !important; }
 
 /* kotak selectbox / multiselect: PUTIH dengan teks gelap */
 section[data-testid="stSidebar"] [data-baseweb="select"] > div {
-    background-color: #FFFFFF !important;
-    border: 1px solid #9DBFE0 !important;
+    background-color: __SURF__ !important;
+    border: 1px solid __BORDER__ !important;
     border-radius: 8px !important;
 }
 section[data-testid="stSidebar"] [data-baseweb="select"] span,
@@ -157,14 +157,14 @@ section[data-testid="stSidebar"] [data-baseweb="tag"] svg {
 
 /* menu dropdown (muncul di luar sidebar) */
 div[data-baseweb="popover"] ul[role="listbox"] {
-    background-color: #FFFFFF !important;
-    border: 1px solid #9DBFE0 !important;
+    background-color: __SURF__ !important;
+    border: 1px solid __BORDER__ !important;
 }
 div[data-baseweb="popover"] li[role="option"],
 div[data-baseweb="popover"] li[role="option"] div,
 div[data-baseweb="popover"] li[role="option"] span {
     color: __TEXT__ !important;
-    background-color: #FFFFFF;
+    background-color: __SURF__;
 }
 div[data-baseweb="popover"] li[role="option"]:hover,
 div[data-baseweb="popover"] li[aria-selected="true"] {
@@ -174,8 +174,8 @@ div[data-baseweb="popover"] li[aria-selected="true"] {
 /* navigasi halaman (radio) tampil seperti menu */
 section[data-testid="stSidebar"] div[role="radiogroup"] > label {
     display: block;
-    background: #FFFFFF;
-    border: 1px solid #C7DAEE;
+    background: __SURF__;
+    border: 1px solid __BORDER__;
     border-radius: 10px;
     padding: 9px 12px;
     margin-bottom: 6px;
@@ -203,24 +203,24 @@ section[data-testid="stSidebar"] button p { color:#FFFFFF !important; }
 
 /* expander filter tambahan */
 section[data-testid="stSidebar"] details {
-    background: #FFFFFF;
-    border: 1px solid #C7DAEE;
+    background: __SURF__;
+    border: 1px solid __BORDER__;
     border-radius: 10px;
 }
 
 /* ---------- KARTU METRIK ---------- */
 div[data-testid="stMetric"] {
-    background-color: #FFFFFF;
-    border: 1px solid #D7E6F5;
+    background-color: __SURF__;
+    border: 1px solid __BORDER__;
     border-radius: 14px;
     padding: 14px 16px;
-    box-shadow: 0 2px 10px rgba(15,76,129,0.08);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
 }
 div[data-testid="stMetric"] label { color: __DARK__ !important;
     font-weight: 700; }
-div[data-testid="stMetricValue"] { color: #0B1F33 !important;
+div[data-testid="stMetricValue"] { color: __TEXT__ !important;
     font-weight: 800; }
-div[data-testid="stMetricDelta"] { color: #4B5563 !important; }
+div[data-testid="stMetricDelta"] { color: __TEXT2__ !important; }
 /* allow delta subtext and label to wrap instead of truncating */
 div[data-testid="stMetricDelta"],
 div[data-testid="stMetricDelta"] *,
@@ -237,13 +237,13 @@ div[data-testid="stMetricLabel"] *,
 }
 
 /* ---------- TAB SUB-KATEGORI ---------- */
-button[data-baseweb="tab"] { color: #33506B !important; font-weight: 600; }
+button[data-baseweb="tab"] { color: __TEXT2__ !important; font-weight: 600; }
 button[data-baseweb="tab"][aria-selected="true"] {
     color: __DARK__ !important;
     border-bottom: 3px solid __DARK__;
 }
 
-div[data-testid="stExpander"] { background:#FFFFFF; border-radius:12px; }
+div[data-testid="stExpander"] { background:__SURF__; border-radius:12px; }
 hr { border-color: __PALE__; }
 
 /* ---------- EXPANDER — header and body text always dark on white ---------- */
@@ -292,7 +292,9 @@ label[data-baseweb="checkbox"] > div:last-child span,
 """
 st.markdown(
     CSS.replace("__BG__", C_BG).replace("__DARK__", C_BRAND)
-       .replace("__PALE__", C_PALE).replace("__TEXT__", INK),
+       .replace("__PALE__", C_PALE).replace("__TEXT__", INK)
+       .replace("__SURF__", SURFACE).replace("__BORDER__", AXIS)
+       .replace("__TEXT2__", INK_2),
     unsafe_allow_html=True,
 )
 
