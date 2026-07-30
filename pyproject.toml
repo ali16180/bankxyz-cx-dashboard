@@ -1,0 +1,28 @@
+[project]
+name = "deka-bankxyz-cx"
+version = "0.2.0"
+description = "Branch customer-experience survey dashboard for Bank XYZ (Streamlit + metadata-driven)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.3",
+    "plotly>=6.8.0",
+    "streamlit>=1.58.0",
+]
+
+[project.optional-dependencies]
+# Only needed to execute pipeline.ipynb top-to-bottom.
+pipeline = [
+    "ipykernel>=6.29",
+    "nbclient>=0.10",
+    "nbconvert>=7.16",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Plotly's API is built around dict(...) keyword arguments; rewriting every one of
+# them as a literal makes the chart code harder to read, not easier.
+ignore = ["C408"]
