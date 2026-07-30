@@ -1,5 +1,7 @@
 # Bank XYZ — Branch Customer Experience Dashboard
 
+🔗 **Live app:** [bankxyz-cx-dashboard.streamlit.app](https://bankxyz-cx-dashboard.streamlit.app/)
+
 Survey analytics for an Indonesian bank's branch customer-experience study
 (anonymised as "Bank XYZ"). 1,730 respondents × 632 variables, collected across
 branches, provinces and five service touchpoints.
@@ -15,23 +17,6 @@ metadata/metadata_dashboard.{csv,xlsx}  what the app reads; the .xlsx is the edi
 dashboard.py                            the Streamlit app
 smoke_test.py                           headless render check for every page
 ```
-
-## Run it
-
-```bash
-# 1. regenerate the metadata (only needed if the data or the tagging rules change)
-uv run --with pandas,openpyxl,nbconvert,nbclient,ipykernel \
-    jupyter nbconvert --to notebook --execute --inplace pipeline.ipynb
-
-# 2. serve the dashboard
-uv run --with pandas,plotly,streamlit,openpyxl streamlit run dashboard.py
-
-# 3. verify every page still renders (no browser needed)
-uv run --with pandas,plotly,streamlit,openpyxl python smoke_test.py
-```
-
-The notebook is the only thing that writes `metadata/`. Set `DEKA_METADATA_OUT` to
-write elsewhere when experimenting.
 
 ## Reading the numbers
 
@@ -83,7 +68,7 @@ the instructions in Indonesian) and edit:
 - `subgroup` — the sub-category a chart groups by
 - `label` — the text on chart axes
 
-Save, then re-run the app. The app prefers the `.xlsx` over the `.csv`. Do not rename
+Save, then redeploy. The app prefers the `.xlsx` over the `.csv`. Do not rename
 `variable`, swap `role=Atribut` with `role=Importance`, or edit `pair_key` — the app
 filters on those exact values and pages will silently render empty.
 
